@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <title>Under Controllers · Botiga</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="neon-orb cyan"></div>
+  <div class="neon-orb violet"></div>
+  <div class="neon-orb pink"></div>
+
+  <header>
+    <nav class="nav">
+      <div class="logo">
+        <div class="logo-icon"></div>
+        <div>
+          <div class="logo-text-main">UNDER CONTROLLERS</div>
+          <div class="logo-text-sub">Custom gaming gear</div>
+        </div>
+      </div>
+      <button class="nav-toggle">Menu</button>
+      <div class="nav-links">
+        <a href="index.html">Inici</a>
+        <a href="configurador.html">Configurador</a>
+        <a href="diagnostic.html">Diagnòstic</a>
+        <a href="botiga.html" class="active">Botiga</a>
+        <a href="contacte.html">Contacte</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <div class="section-header">
+        <h2 class="section-title">Botiga neon Under Controllers</h2>
+        <p class="section-subtitle">
+          Mandos personalitzats, enganxines hologràfiques i recanvis oficials per als teus comandaments.
+        </p>
+      </div>
+
+      <div class="shop-filters">
+        <span style="color:var(--text-muted); text-transform:uppercase; letter-spacing:0.14em; font-size:0.76rem;">
+          Categories:
+        </span>
+        <button class="chip active" data-filter="all" onclick="filterProducts('all')">Tots</button>
+        <button class="chip" data-filter="controllers" onclick="filterProducts('controllers')">Mandos</button>
+        <button class="chip" data-filter="stickers" onclick="filterProducts('stickers')">Enganxines</button>
+        <button class="chip" data-filter="spare" onclick="filterProducts('spare')">Recanvis</button>
+      </div>
+
+      <div class="shop-grid">
+        <!-- Mandos -->
+        <article class="product-card" data-category="controllers">
+          <h3 class="product-title">UC PRO SHIFT – Ultra Neon</h3>
+          <div class="product-meta">
+            <span>Xbox · PlayStation · PC</span>
+            <span class="product-price">189,00 €</span>
+          </div>
+          <p style="margin-top:6px; color:var(--text-muted); font-size:0.85rem;">
+            4 backpaddles, grips antilliscants, triggers ràpids i acabat violeta ultraneon amb detall cian.
+          </p>
+        </article>
+
+        <article class="product-card" data-category="controllers">
+          <h3 class="product-title">UC NEO LITE – Esport electrònic</h3>
+          <div class="product-meta">
+            <span>Pes reduït · USB-C</span>
+            <span class="product-price">129,00 €</span>
+          </div>
+          <p style="margin-top:6px; color:var(--text-muted); font-size:0.85rem;">
+            Dissenyat per sessions llargues de competició amb il·luminació subtil i resposta millorada.
+          </p>
+        </article>
+
+        <article class="product-card" data-category="controllers">
+          <h3 class="product-title">UC SHADOW EDITION – Stealth</h3>
+          <div class="product-meta">
+            <span>Acabat mat · negre</span>
+            <span class="product-price">159,00 €</span>
+          </div>
+          <p style="margin-top:6px; color:var(--text-muted); font-size:0.85rem;">
+            Màxim control i discreció, amb detalls de llum violeta ultra discret i botons silenciosos.
+          </p>
+        </article>
+
+        <!-- Enganxines -->
+        <article class="product-card" data-category="stickers">
+          <h3 class="product-title">Pack enganxines hologràfiques UC</h3>
+          <div class="product-meta">
+            <span>12 unitats</span>
+            <span class="product-price">9,90 €</span>
+          </div>
+          <p style="margin-top:6px; color:var(--text-muted); font-size:0.85rem;">
+            Logotips i icones gaming amb efecte hologràfic per mando, portàtil o torre.
+          </p>
+        </article>
+
+        <article class="product-card" data-category="stickers">
+          <h3 class="product-title">Skins vinil neon</h3>
+          <div class="product-meta">
+            <span>Camo · Neon · Galaxy</span>
+            <span class="product-price">14,90 €</span>
+          </div>
+          <p style="margin-top:6px; color:var(--text-muted); font-size:0.85rem;">
+            Personalitza la carcassa sense deixar residus i afegeix un toc 100% teu.
+          </p>
+        </article>
+
+        <!-- Recanvis -->
+        <article class="product-card" data-category="spare">
+          <h3 class="product-title">Kit joysticks intercanviables</h3>
+          <div class="product-meta">
+            <span>Alts, baixos, convexos</span>
+            <span class="product-price">19,90 €</span>
+          </div>
+          <p style="margin-top:6px; color:var(--text-muted); font-size:0.85rem;">
+            Inclou colors negre, blau elèctric i verd neon per adaptar-se al teu estil.
+          </p>
+        </article>
+
+        <article class="product-card" data-category="spare">
+          <h3 class="product-title">Pack botons de colors</h3>
+          <div class="product-meta">
+            <span>ABXY / Δ○✕▢</span>
+            <span class="product-price">15,90 €</span>
+          </div>
+          <p style="margin-top:6px; color:var(--text-muted); font-size:0.85rem;">
+            Botons transparents, pastel i neon preparats per retroil·luminació RGB.
+          </p>
+        </article>
+
+        <article class="product-card" data-category="spare">
+          <h3 class="product-title">Triggers i bumpers recanvi</h3>
+          <div class="product-meta">
+            <span>Resposta ràpida</span>
+            <span class="product-price">24,90 €</span>
+          </div>
+          <p style="margin-top:6px; color:var(--text-muted); font-size:0.85rem;">
+            Pack pro per reduir recorregut i guanyar velocitat en shooters i jocs competitius.
+          </p>
+        </article>
+      </div>
+
+      <!-- CARRUSEL DE MANDOS DESTACATS -->
+      <div class="carousel" style="margin-top:24px;">
+        <div class="carousel-track">
+          <div class="carousel-item">
+            <div class="card">
+              <h3 style="margin-bottom:6px;">Edició limitada “Galaxy Neon”</h3>
+              <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:8px;">
+                Mandos amb efecte galàxia i tocs violeta ultraneon, disponibles només en tirada limitada.
+              </p>
+              <p style="font-size:0.85rem; color:var(--accent-cyan);">Proximament a la botiga UC.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="card">
+              <h3 style="margin-bottom:6px;">Bundle competitiu</h3>
+              <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:8px;">
+                Mando UC PRO SHIFT + kit joysticks + pack enganxines hologràfiques.
+              </p>
+              <p style="font-size:0.85rem; color:var(--accent-cyan);">Pensat per a jugadors d’eSports.</p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn prev">‹</button>
+          <button class="carousel-btn next">›</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© Under Controllers · Botiga oficial.</span>
+    <span>Mandos, enganxines i recanvis neon.</span>
+  </footer>
+</body>
+</html>
+

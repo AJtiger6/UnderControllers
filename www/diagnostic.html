@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <title>Under Controllers · Diagnòstic web</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="neon-orb cyan"></div>
+  <div class="neon-orb violet"></div>
+  <div class="neon-orb pink"></div>
+
+  <header>
+    <nav class="nav">
+      <div class="logo">
+        <div class="logo-icon"></div>
+        <div>
+          <div class="logo-text-main">UNDER CONTROLLERS</div>
+          <div class="logo-text-sub">Custom gaming gear</div>
+        </div>
+      </div>
+      <button class="nav-toggle">Menu</button>
+      <div class="nav-links">
+        <a href="index.html">Inici</a>
+        <a href="configurador.html">Configurador</a>
+        <a href="diagnostic.html" class="active">Diagnòstic</a>
+        <a href="botiga.html">Botiga</a>
+        <a href="contacte.html">Contacte</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <div class="section-header">
+        <h2 class="section-title">Programa de diagnòstic web</h2>
+        <p class="section-subtitle">
+          Connecta el teu mando via <strong>USB-C</strong> i simula un diagnòstic d’estat:
+          drift, botons, triggers i firmware. (Versió demo amb JavaScript).
+        </p>
+      </div>
+
+      <div class="diagnostics-layout">
+        <article class="card">
+          <h3 style="margin-bottom:6px;">Què comprovem?</h3>
+          <ul style="margin-left:16px; color:var(--text-muted); font-size:0.9rem; margin-top:4px;">
+            <li>Drift als joysticks (moviment sense tocar-los).</li>
+            <li>Botons que fallen, es queden enganxats o tenen retard.</li>
+            <li>Triggers i bumpers amb resposta irregular.</li>
+            <li>Versió i estat del firmware del mando.</li>
+          </ul>
+          <p style="margin-top:10px; font-size:0.86rem; color:var(--text-muted);">
+            En una implementació real, aquest mòdul es podria basar en WebUSB o una app d’escriptori,
+            però la interfície i el flux serien molt semblants al que veus aquí.
+          </p>
+        </article>
+
+        <article class="card">
+          <form onsubmit="event.preventDefault(); runDiagnostic();">
+            <div class="form-group">
+              <label for="diag-platform">Plataforma</label>
+              <select id="diag-platform">
+                <option value="Xbox">Xbox</option>
+                <option value="PlayStation">PlayStation</option>
+                <option value="PC">PC</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="diag-model">Model de mando</label>
+              <select id="diag-model">
+                <option value="UC PRO">UC PRO</option>
+                <option value="UC Neo Lite">UC Neo Lite</option>
+                <option value="UC Shadow">UC Shadow</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="diag-serial">Número de sèrie (opcional)</label>
+              <input id="diag-serial" type="text" placeholder="Ex: UC-2025-AX49" />
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="diag-btn">
+              Iniciar diagnòstic (demo)
+            </button>
+
+            <div class="diagnostics-status" id="diag-status">
+              Estat: pendent de connexió del mando per USB-C.
+            </div>
+            <div class="diagnostics-log" id="diag-log">
+[READY] Sistema de diagnòstic Under Controllers preparat.
+            </div>
+          </form>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© Under Controllers · Diagnòstic web demo.</span>
+    <span>Servei tècnic propi i diagnòstic remot.</span>
+  </footer>
+</body>
+</html>
+

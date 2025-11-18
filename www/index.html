@@ -2,259 +2,149 @@
 <html lang="ca">
 <head>
   <meta charset="UTF-8" />
-  <title>Under Controllers - Mandos personalitzats</title>
+  <title>Under Controllers · Inici</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
+  <!-- FONS NEON FLOTANT -->
+  <div class="neon-orb cyan"></div>
+  <div class="neon-orb violet"></div>
+  <div class="neon-orb pink"></div>
+
   <header>
     <nav class="nav">
       <div class="logo">
-        <span class="logo-icon">UC</span>
-        <div class="logo-text">
-          <span class="logo-title">Under Controllers</span>
-          <span class="logo-subtitle">Custom gaming gear</span>
+        <div class="logo-icon"></div>
+        <div>
+          <div class="logo-text-main">UNDER CONTROLLERS</div>
+          <div class="logo-text-sub">Custom gaming gear</div>
         </div>
       </div>
-      <ul class="nav-links">
-        <li><a href="#inici">Inici</a></li>
-        <li><a href="#configurador">Configurador</a></li>
-        <li><a href="#diagnostic">Diagnòstic</a></li>
-        <li><a href="#botiga">Botiga</a></li>
-        <li><a href="#contacte">Contacte</a></li>
-      </ul>
+      <button class="nav-toggle">Menu</button>
+      <div class="nav-links">
+        <a href="index.html" class="active">Inici</a>
+        <a href="configurador.html">Configurador</a>
+        <a href="diagnostic.html">Diagnòstic</a>
+        <a href="botiga.html">Botiga</a>
+        <a href="contacte.html">Contacte</a>
+      </div>
     </nav>
   </header>
 
   <main>
-    <!-- HERO / INICI -->
-    <section id="inici" class="hero">
-      <div class="hero-text">
-        <h1>Under Controllers</h1>
+    <section class="hero">
+      <div>
+        <div class="hero-badge">
+          <div class="hero-badge-dot"></div>
+          <span>Custom Controllers · Ultra Neon</span>
+        </div>
+        <h1 class="hero-title">
+          Under Controllers: <span>mandos neon</span> per a Xbox, PlayStation i PC.
+        </h1>
         <p class="hero-subtitle">
-          Empresa especialitzada en <strong>creació i disseny de mandos personalitzats</strong>
-          per a Xbox, PlayStation i PC. Inspirat en marques com Scuf, però amb servei tècnic propi
-          i recanvis oficials.
+          Dissenyem i fabriquem mandos personalitzats amb acabats violeta ultraneon, efectes RGB,
+          joysticks intercanviables i macros avançades. Inspirats en Scuf, però amb servei tècnic propi
+          i diagnòstic web integrat.
         </p>
-        <div class="hero-buttons">
-          <button onclick="scrollToSection('configurador')">Configura el teu mando</button>
-          <button class="btn-secondary" onclick="scrollToSection('botiga')">Entrar a la botiga</button>
+        <div class="hero-cta-row">
+          <a class="btn btn-primary" href="configurador.html">Configura el teu mando</a>
+          <a class="btn btn-ghost" href="botiga.html">Entrar a la botiga</a>
         </div>
       </div>
-      <div class="hero-controller-preview">
-        <div class="controller-preview">
-          <div class="controller-shell">
-            <div class="controller-stick left"></div>
-            <div class="controller-stick right"></div>
-            <div class="controller-buttons"></div>
+
+      <aside class="hero-card" aria-label="Vista prèvia mando pro">
+        <div class="hero-card-glow"></div>
+        <div class="hero-card-inner">
+          <div class="hero-card-header">
+            <span>Model UC PRO SHIFT</span>
+            <span class="hero-card-chip">
+              <span class="hero-card-chip-dot"></span>
+              Live diagnostics
+            </span>
+          </div>
+          <div class="controller-visual">
+            <div class="controller-inner">
+              <div class="controller-shape">
+                <div class="stick"></div>
+                <div class="button-ring">
+                  <div class="button-core"></div>
+                </div>
+              </div>
+            </div>
+            <div class="controller-info">
+              <strong>Edició Ultra Neon</strong> · Violeta, cian i rosa amb resposta pro.
+            </div>
           </div>
         </div>
-        <p class="hero-note">Vista prèvia del teu mando personalitzat Under Controllers.</p>
+      </aside>
+    </section>
+
+    <section>
+      <div class="section-header">
+        <h2 class="section-title">La nostra visió</h2>
+        <p class="section-subtitle">
+          Una marca pensada per jugadors competitius i creadors de contingut que volen
+          un mando tan únic com el seu estil.
+        </p>
+      </div>
+      <div class="card">
+        <p style="font-size:0.9rem; color:var(--text-muted);">
+          Under Controllers crea mandos per a Xbox, PlayStation i PC, amb configurador visual de colors,
+          diagnòstic web mitjançant USB-C i botiga de recanvis oficials (joysticks, botons, enganxines).
+        </p>
       </div>
     </section>
 
-    <!-- CONFIGURADOR VISUAL -->
-    <section id="configurador" class="section">
-      <h2>Configurador visual de mando</h2>
-      <p class="section-desc">
-        Tria els colors de la carcassa, els joysticks i els botons, i veu el resultat en directe.
-      </p>
-
-      <div class="configurator-grid">
-        <form class="config-form">
-          <div class="form-group">
-            <label>Plataforma</label>
-            <div class="platform-options">
-              <label><input type="radio" name="platform" value="xbox" checked /> Xbox</label>
-              <label><input type="radio" name="platform" value="playstation" /> PlayStation</label>
-              <label><input type="radio" name="platform" value="pc" /> PC</label>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="color-shell">Color carcassa</label>
-            <input type="color" id="color-shell" value="#2b2bff" />
-          </div>
-
-          <div class="form-group">
-            <label for="color-sticks">Color joysticks</label>
-            <input type="color" id="color-sticks" value="#00ffb3" />
-          </div>
-
-          <div class="form-group">
-            <label for="color-buttons">Color botons</label>
-            <input type="color" id="color-buttons" value="#ff4081" />
-          </div>
-
-          <button type="button" class="btn-full" onclick="resetColors()">
-            Reiniciar colors
-          </button>
-        </form>
-
-        <div class="config-preview">
-          <h3>Vista prèvia</h3>
-          <div class="controller-preview big">
-            <div class="controller-shell" id="preview-shell">
-              <div class="controller-stick left" id="preview-stick-left"></div>
-              <div class="controller-stick right" id="preview-stick-right"></div>
-              <div class="controller-buttons" id="preview-buttons"></div>
-            </div>
-          </div>
-          <p class="preview-text" id="preview-text">
-            Model base per a <strong>Xbox</strong> amb colors personalitzats.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- DIAGNÒSTIC WEB -->
-    <section id="diagnostic" class="section section-alt">
-      <h2>Programa web de diagnòstic del comandament</h2>
-      <p class="section-desc">
-        Connecta el teu mando via <strong>USB-C</strong> i simula un diagnòstic bàsic des del navegador.
-        En una versió real es podria utilitzar WebUSB o una app d’escriptori.
-      </p>
-
-      <div class="diagnostic-grid">
-        <div class="diagnostic-info">
-          <h3>Què comprova el diagnòstic?</h3>
-          <ul>
-            <li>Drift als joysticks</li>
-            <li>Botons que no responen o es queden enganxats</li>
-            <li>Triggers i bumpers</li>
-            <li>Versió de firmware del mando</li>
-          </ul>
-        </div>
-
-        <div class="diagnostic-panel">
-          <form onsubmit="event.preventDefault(); runDiagnostic();">
-            <div class="form-group">
-              <label for="diag-platform">Plataforma</label>
-              <select id="diag-platform">
-                <option value="Xbox">Xbox</option>
-                <option value="PlayStation">PlayStation</option>
-                <option value="PC">PC</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="diag-model">Model de mando</label>
-              <select id="diag-model">
-                <option value="UC PRO">UC PRO</option>
-                <option value="UC Lite">UC Lite</option>
-                <option value="UC Shadow">UC Shadow</option>
-              </select>
-            </div>
-
-            <button type="submit">Iniciar diagnòstic (demo)</button>
-
-            <p class="diag-status" id="diag-status">
-              Estat: pendent de connexió del mando per USB-C.
-            </p>
-            <pre class="diag-log" id="diag-log">
-[READY] Sistema de diagnòstic Under Controllers preparat.
-            </pre>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <!-- BOTIGA -->
-    <section id="botiga" class="section">
-      <h2>Botiga Under Controllers</h2>
-      <p class="section-desc">
-        Mandos personalitzats, enganxines decoratives i recanvis oficials (joysticks, botons, etc.).
-      </p>
-
-      <div class="shop-filters">
-        <button class="filter-btn active" data-filter="all" onclick="filterProducts('all')">Tots</button>
-        <button class="filter-btn" data-filter="controller" onclick="filterProducts('controller')">Mandos</button>
-        <button class="filter-btn" data-filter="sticker" onclick="filterProducts('sticker')">Enganxines</button>
-        <button class="filter-btn" data-filter="spare" onclick="filterProducts('spare')">Recanvis</button>
+    <!-- CARRUSEL INICI: RESUM DE CATEGORIES -->
+    <section>
+      <div class="section-header">
+        <h2 class="section-title">Explora l’univers UC</h2>
+        <p class="section-subtitle">Navega per les principals seccions de la web.</p>
       </div>
 
-      <div class="shop-grid" id="shop-grid">
-        <!-- MANDOS -->
-        <article class="product-card" data-category="controller">
-          <h3>UC PRO Shift</h3>
-          <p class="product-desc">Mando competitiu amb backpaddles i grips antilliscants.</p>
-          <p class="product-price">189,00 €</p>
-          <p class="product-tags">Xbox · PlayStation · PC</p>
-        </article>
-
-        <article class="product-card" data-category="controller">
-          <h3>UC Neo Lite</h3>
-          <p class="product-desc">Versió lleugera per a esports electrònics.</p>
-          <p class="product-price">129,00 €</p>
-          <p class="product-tags">Pes reduït · cable USB-C</p>
-        </article>
-
-        <!-- ENGANXINES -->
-        <article class="product-card" data-category="sticker">
-          <h3>Pack enganxines hologràfiques</h3>
-          <p class="product-desc">Logos i gràfics per al mando, portàtil o torre.</p>
-          <p class="product-price">9,90 €</p>
-          <p class="product-tags">Resistents · efecte hologràfic</p>
-        </article>
-
-        <article class="product-card" data-category="sticker">
-          <h3>Skins vinil</h3>
-          <p class="product-desc">Camo, neon i galaxy per personalitzar completament.</p>
-          <p class="product-price">14,90 €</p>
-          <p class="product-tags">Fàcil d’aplicar · sense residus</p>
-        </article>
-
-        <!-- RECANVIS -->
-        <article class="product-card" data-category="spare">
-          <h3>Kit joysticks</h3>
-          <p class="product-desc">Joysticks alts i baixos en diferents colors.</p>
-          <p class="product-price">19,90 €</p>
-          <p class="product-tags">Negre · blau · verd neon</p>
-        </article>
-
-        <article class="product-card" data-category="spare">
-          <h3>Pack botons de colors</h3>
-          <p class="product-desc">ABXY / Δ○✕▢ transparents i en colors pastel.</p>
-          <p class="product-price">15,90 €</p>
-          <p class="product-tags">Compatibles amb Xbox i PS</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- CONTACTE -->
-    <section id="contacte" class="section section-alt">
-      <h2>Contacte</h2>
-      <p class="section-desc">
-        Per dubtes, recanvis o projectes de mandos personalitzats, ens pots escriure:
-      </p>
-
-      <div class="contact-grid">
-        <div>
-          <ul class="contact-list">
-            <li><strong>Email suport tècnic:</strong> suport@undercontrollers.com</li>
-            <li><strong>Email comandes:</strong> shop@undercontrollers.com</li>
-          </ul>
+      <div class="carousel">
+        <div class="carousel-track">
+          <div class="carousel-item">
+            <div class="card">
+              <h3 style="margin-bottom:6px;">Configurador visual</h3>
+              <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:8px;">
+                Tria colors de carcassa, joysticks i botons amb vista prèvia en temps real, estil neon.
+              </p>
+              <a class="btn btn-primary" href="configurador.html">Anar al configurador</a>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="card">
+              <h3 style="margin-bottom:6px;">Diagnòstic USB-C</h3>
+              <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:8px;">
+                Simula el diagnòstic del teu mando: drift, botons, triggers i firmware, directament al navegador.
+              </p>
+              <a class="btn btn-primary" href="diagnostic.html">Anar al diagnòstic</a>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="card">
+              <h3 style="margin-bottom:6px;">Botiga neon</h3>
+              <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:8px;">
+                Mandos, enganxines hologràfiques i recanvis oficials amb acabats violeta ultraneon.
+              </p>
+              <a class="btn btn-primary" href="botiga.html">Entrar a la botiga</a>
+            </div>
+          </div>
         </div>
-        <form class="contact-form" onsubmit="event.preventDefault(); alert('Missatge enviat (demo)');">
-          <div class="form-group">
-            <label for="contact-email">Email</label>
-            <input id="contact-email" type="email" required />
-          </div>
-          <div class="form-group">
-            <label for="contact-msg">Missatge</label>
-            <textarea id="contact-msg" rows="3" required></textarea>
-          </div>
-          <button type="submit">Enviar (demo)</button>
-        </form>
+        <div class="carousel-controls">
+          <button class="carousel-btn prev">‹</button>
+          <button class="carousel-btn next">›</button>
+        </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>© Under Controllers · Mandos personalitzats per a Xbox, PlayStation i PC.</p>
+    <span>© Under Controllers · Mandos personalitzats per a Xbox, PlayStation i PC.</span>
+    <span>Violeta ultraneon, cian i rosa per un setup 100% gaming.</span>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
-

@@ -1,142 +1,193 @@
-// Scroll suau a una secció
-function scrollToSection(id) {
-  const el = document.getElementById(id);
-  if (el) el.scrollIntoView({ behavior: "smooth" });
-}
+// --- NAVBAR MOBILE ---
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
 
-/* CONFIGURADOR VISUAL */
-
-// elements de color
-const colorShellInput = document.getElementById("color-shell");
-const colorSticksInput = document.getElementById("color-sticks");
-const colorButtonsInput = document.getElementById("color-buttons");
-
-// elements de preview
-const previewShell = document.getElementById("preview-shell");
-const previewStickLeft = document.getElementById("preview-stick-left");
-const previewStickRight = document.getElementById("preview-stick-right");
-const previewButtons = document.getElementById("preview-buttons");
-const previewText = document.getElementById("preview-text");
-
-// plataforma
-const platformInputs = document.querySelectorAll('input[name="platform"]');
-
-function updatePreview() {
-  if (previewShell) {
-    previewShell.style.backgroundColor = colorShellInput.value;
-  }
-  if (previewStickLeft && previewStickRight) {
-    previewStickLeft.style.backgroundColor = colorSticksInput.value;
-    previewStickRight.style.backgroundColor = colorSticksInput.value;
-  }
-  if (previewButtons) {
-    previewButtons.style.backgroundColor = colorButtonsInput.value;
-  }
-
-  // text segons plataforma
-  let platform = "Xbox";
-  platformInputs.forEach((input) => {
-    if (input.checked) platform = input.value;
+if (navToggle && navLinks) {
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
   });
+}
 
-  let platformText = "Xbox";
-  if (platform === "playstation") platformText = "PlayStation";
-  if (platform === "pc") platformText = "PC";
+// --- CONFIGURADOR VISUAL (pàgina configurador) ---
+const shellInput = document.getElementById('color-shell');
+const sticksInput = document.getElementById('color-sticks');
+const buttonsInput = document.getElementById('color-buttons');
 
-  if (previewText) {
+const shellPreview = document.getElementById('preview-shell');
+const leftStickPreview = document.getElementById('preview-stick-left');
+const rightStickPreview = document.getElementById('preview-stick-right');
+const buttonsPreview = document.getElementById('preview-buttons');
+const platformRadios = document.querySelectorAll('input[name="platform"]');
+const previewText = document.getElementById('preview-text');
+
+function updateConfiguratorPreview() {
+  if (shellPreview && shellInput) {
+    shellPreview.style.backgroundColor = shellInput.value;
+  }
+  if (leftStickPreview && rightStickPreview && sticksInput) {
+    leftStickPreview.style.backgroundColor = sticksInput.value;
+    rightStickPreview.style.backgroundColor = sticksInput.value;
+  }
+  if (buttonsPreview && buttonsInput) {
+    buttonsPreview.style.backgroundColor = buttonsInput.value;
+  }
+
+  if (previewText && platformRadios.length) {
+    let platform = 'Xbox';
+    platformRadios.forEach((r) => {
+      if (r.checked) platform = r.value;
+    });
+    let label = 'Xbox';
+    if (platform === 'playstation') label = 'PlayStation';
+    if (platform === 'pc') label = 'PC';
     previewText.innerHTML =
-      'Model base per a <strong>' + platformText + "</strong> amb colors personalitzats.";
+      'Model base per a <strong>' + label + '</strong> amb configuració neon personalitzada.';
   }
 }
 
-// escoltar canvis
-if (colorShellInput && colorSticksInput && colorButtonsInput) {
-  colorShellInput.addEventListener("input", updatePreview);
-  colorSticksInput.addEventListener("input", updatePreview);
-  colorButtonsInput.addEventListener("input", updatePreview);
+if (shellInput && sticksInput && buttonsInput) {
+  shellInput.addEventListener('input', updateConfiguratorPreview);
+  sticksInput.addEventListener('input', updateConfiguratorPreview);
+  buttonsInput.addEventListener('input', updateConfiguratorPreview);
 }
-platformInputs.forEach((input) => input.addEventListener("change", updatePreview));
-
-// valors per defecte
-function resetColors() {
-  colorShellInput.value = "#2b2bff";
-  colorSticksInput.value = "#00ffb3";
-  colorButtonsInput.value = "#ff4081";
-  updatePreview();
+if (platformRadios.length) {
+  platformRadios.forEach((r) => r.addEventListener('change', updateConfiguratorPreview));
 }
 
-// inicialitzar preview al carregar
-document.addEventListener("DOMContentLoaded", updatePreview);
+window.addEventListener('DOMContentLoaded', () => {
+  updateConfiguratorPreview();
+});
 
-/* DIAGNÒSTIC DEMO */
+// Botó reiniciar colors
+const resetBtn = document.getElementById('reset-colors');
+if (resetBtn && shellInput && sticksInput && buttonsInput) {
+  resetBtn.addEventListener('click', () => {
+    shellInput.value = '#7f5bff';
+    sticksInput.value = '#4cffd7';
+    buttonsInput.value = '#ff4fbf';
+    updateConfiguratorPreview();
+  });
+}
 
+// --- DIAGNÒSTIC DEMO (pàgina diagnostic) ---
 function runDiagnostic() {
-  const platform = document.getElementById("diag-platform").value;
-  const model = document.getElementById("diag-model").value;
-  const statusEl = document.getElementById("diag-status");
-  const logEl = document.getElementById("diag-log");
+  const platformSel = document.getElementById('diag-platform');
+  const modelSel = document.getElementById('diag-model');
+  const statusEl = document.getElementById('diag-status');
+  const logEl = document.getElementById('diag-log');
+  const btn = document.getElementById('diag-btn');
 
-  statusEl.textContent = "Executant diagnòstic...";
+  if (!platformSel || !modelSel || !statusEl || !logEl || !btn) return;
+
+  const platform = platformSel.value;
+  const model = modelSel.value;
+
+  statusEl.textContent = 'Escanejant el mando...';
+  btn.disabled = true;
+  btn.style.opacity = '0.7';
 
   const baseLines = [
-    "[INFO] Connectant al mando via USB-C...",
-    "[INFO] Plataforma: " + platform,
-    "[INFO] Model: " + model,
-    "[INFO] Llegint informació de joysticks...",
-    "[INFO] Comprovant resposta de botons...",
-    "[INFO] Analitzant triggers i firmware..."
+    '[INFO] Connectant al mando via USB-C...',
+    '[INFO] Plataforma: ' + platform,
+    '[INFO] Model: ' + model,
+    '[INFO] Llegint sensors de joysticks...',
+    '[INFO] Comprovant resposta de botons...',
+    '[INFO] Verificant triggers i vibració...',
+    '[INFO] Analitzant firmware i latència...'
   ];
 
-  const results = [
+  const scenarios = [
     {
-      title: "[OK] Cap error greu detectat.",
+      title: '[OK] Cap error greu detectat.',
       detail:
-        "[OK] Drift dins dels valors normals.\n[OK] Botons i triggers responen correctament.\n[OK] Firmware actualitzat."
+        '[OK] Drift dins dels valors normals.\n[OK] Tots els botons responen correctament.\n[OK] Firmware actualitzat.'
     },
     {
-      title: "[WARN] Drift lleu detectat al joystick esquerre.",
+      title: '[WARN] Drift lleu al joystick esquerre.',
       detail:
-        "[SUGGERIMENT] Recomanem calibració o canvi de mòdul.\n[INFO] Resta de botons i triggers en bon estat."
+        '[SUGGERIMENT] Recomanem calibració o canvi de mòdul.\n[INFO] Resta de components en bon estat.'
     },
     {
-      title: "[WARN] Temps de resposta alt al botó principal.",
+      title: '[WARN] Retard detectat al botó principal.',
       detail:
-        "[SUGGERIMENT] Neteja interna o substitució del botó recomanada.\n[INFO] Joysticks i triggers OK."
+        '[SUGGERIMENT] Possible brutícia o desgast.\n[INFO] Considera substituir el botó per un recanvi oficial.'
+    },
+    {
+      title: '[OK] Rendiment òptim per a joc competitiu.',
+      detail:
+        '[OK] Latència baixa i senyal estable.\n[OK] Preparat per sessions d’eSports.'
     }
   ];
 
-  const result = results[Math.floor(Math.random() * results.length)];
+  const result = scenarios[Math.floor(Math.random() * scenarios.length)];
 
-  let text = "";
-  baseLines.forEach((line) => {
-    text += line + "\n";
-  });
-  text += "\n" + result.title + "\n" + result.detail;
+  logEl.textContent = '';
+  let i = 0;
 
-  // Simulem un petit retard
-  setTimeout(() => {
-    logEl.textContent = text;
-    statusEl.textContent = "Resultat: " + result.title.replace("[OK] ", "").replace("[WARN] ", "");
-  }, 500);
+  function appendLine() {
+    if (i < baseLines.length) {
+      logEl.textContent += baseLines[i] + '\n';
+      i++;
+      setTimeout(appendLine, 230);
+    } else {
+      logEl.textContent += '\n' + result.title + '\n' + result.detail;
+      statusEl.textContent = result.title.replace('[OK] ', '').replace('[WARN] ', '');
+      btn.disabled = false;
+      btn.style.opacity = '1';
+    }
+  }
+
+  appendLine();
 }
 
-/* BOTIGA: FILTRES */
-
+// --- BOTIGA: FILTRAT DE PRODUCTES ---
 function filterProducts(category) {
-  const cards = document.querySelectorAll(".product-card");
-  const buttons = document.querySelectorAll(".filter-btn");
+  const cards = document.querySelectorAll('.product-card');
+  const chips = document.querySelectorAll('.chip');
 
-  buttons.forEach((btn) => btn.classList.remove("active"));
-  const activeBtn = document.querySelector('.filter-btn[data-filter="' + category + '"]');
-  if (activeBtn) activeBtn.classList.add("active");
+  chips.forEach((chip) => chip.classList.remove('active'));
+  const active = document.querySelector('.chip[data-filter="' + category + '"]');
+  if (active) active.classList.add('active');
 
   cards.forEach((card) => {
-    const cat = card.getAttribute("data-category");
-    if (category === "all" || cat === category) {
-      card.style.display = "";
+    const cat = card.getAttribute('data-category');
+    if (category === 'all' || cat === category) {
+      card.style.display = '';
     } else {
-      card.style.display = "none";
+      card.style.display = 'none';
     }
   });
 }
 
+// --- CARRUSEL GENERIC (home / botiga) ---
+document.querySelectorAll('.carousel').forEach((carousel) => {
+  const track = carousel.querySelector('.carousel-track');
+  const items = carousel.querySelectorAll('.carousel-item');
+  const prevBtn = carousel.querySelector('.carousel-btn.prev');
+  const nextBtn = carousel.querySelector('.carousel-btn.next');
+
+  if (!track || items.length === 0) return;
+
+  let index = 0;
+
+  function update() {
+    track.style.transform = 'translateX(' + -index * 100 + '%)';
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      index = (index - 1 + items.length) % items.length;
+      update();
+    });
+  }
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      index = (index + 1) % items.length;
+      update();
+    });
+  }
+});
+
+// Expose diagnostic to HTML on diagnostic page
+window.runDiagnostic = runDiagnostic;
+window.filterProducts = filterProducts;

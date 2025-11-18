@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <title>Under Controllers · Configurador</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="neon-orb cyan"></div>
+  <div class="neon-orb violet"></div>
+  <div class="neon-orb pink"></div>
+
+  <header>
+    <nav class="nav">
+      <div class="logo">
+        <div class="logo-icon"></div>
+        <div>
+          <div class="logo-text-main">UNDER CONTROLLERS</div>
+          <div class="logo-text-sub">Custom gaming gear</div>
+        </div>
+      </div>
+      <button class="nav-toggle">Menu</button>
+      <div class="nav-links">
+        <a href="index.html">Inici</a>
+        <a href="configurador.html" class="active">Configurador</a>
+        <a href="diagnostic.html">Diagnòstic</a>
+        <a href="botiga.html">Botiga</a>
+        <a href="contacte.html">Contacte</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <div class="section-header">
+        <h2 class="section-title">Configurador visual de mando</h2>
+        <p class="section-subtitle">
+          Tria plataforma, colors de carcassa, joysticks i botons. Vista prèvia neon en temps real.
+        </p>
+      </div>
+
+      <div class="config-layout">
+        <div class="card">
+          <form>
+            <div class="form-group">
+              <label>Plataforma</label>
+              <div style="display:flex; gap:10px; font-size:0.85rem;">
+                <label><input type="radio" name="platform" value="xbox" checked /> Xbox</label>
+                <label><input type="radio" name="platform" value="playstation" /> PlayStation</label>
+                <label><input type="radio" name="platform" value="pc" /> PC</label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="color-shell">Color carcassa</label>
+              <input type="color" id="color-shell" value="#7f5bff" />
+            </div>
+
+            <div class="form-group">
+              <label for="color-sticks">Color joysticks</label>
+              <input type="color" id="color-sticks" value="#4cffd7" />
+            </div>
+
+            <div class="form-group">
+              <label for="color-buttons">Color botons</label>
+              <input type="color" id="color-buttons" value="#ff4fbf" />
+            </div>
+
+            <button type="button" class="btn btn-ghost" id="reset-colors" style="width:100%; margin-top:6px;">
+              Reiniciar colors neon
+            </button>
+          </form>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-bottom:6px;">Vista prèvia neon</h3>
+          <p id="preview-text" style="font-size:0.88rem; color:var(--text-muted); margin-bottom:8px;">
+            Model base per a <strong>Xbox</strong> amb configuració neon personalitzada.
+          </p>
+
+          <div class="controller-preview-config">
+            <div class="controller-shell-preview" id="preview-shell">
+              <div class="controller-stick-preview" id="preview-stick-left"></div>
+              <div class="controller-buttons-preview" id="preview-buttons"></div>
+              <div class="controller-stick-preview" id="preview-stick-right"></div>
+            </div>
+          </div>
+
+          <p style="font-size:0.8rem; color:var(--text-muted);">
+            Aquest és un esquema simplificat del mando. En un projecte real es podria integrar
+            un model 3D o una imatge interactiva per veure també els backpaddles, triggers i grips.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© Under Controllers · Configurador visual neon.</span>
+    <span>Tria la combinació perfecta per al teu setup.</span>
+  </footer>
+</body>
+</html>
+
