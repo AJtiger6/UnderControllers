@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <title>Under Controllers - Mandos personalitzats</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="logo">
+        <span class="logo-icon">UC</span>
+        <div class="logo-text">
+          <span class="logo-title">Under Controllers</span>
+          <span class="logo-subtitle">Custom gaming gear</span>
+        </div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#inici">Inici</a></li>
+        <li><a href="#configurador">Configurador</a></li>
+        <li><a href="#diagnostic">Diagnòstic</a></li>
+        <li><a href="#botiga">Botiga</a></li>
+        <li><a href="#contacte">Contacte</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO / INICI -->
+    <section id="inici" class="hero">
+      <div class="hero-text">
+        <h1>Under Controllers</h1>
+        <p class="hero-subtitle">
+          Empresa especialitzada en <strong>creació i disseny de mandos personalitzats</strong>
+          per a Xbox, PlayStation i PC. Inspirat en marques com Scuf, però amb servei tècnic propi
+          i recanvis oficials.
+        </p>
+        <div class="hero-buttons">
+          <button onclick="scrollToSection('configurador')">Configura el teu mando</button>
+          <button class="btn-secondary" onclick="scrollToSection('botiga')">Entrar a la botiga</button>
+        </div>
+      </div>
+      <div class="hero-controller-preview">
+        <div class="controller-preview">
+          <div class="controller-shell">
+            <div class="controller-stick left"></div>
+            <div class="controller-stick right"></div>
+            <div class="controller-buttons"></div>
+          </div>
+        </div>
+        <p class="hero-note">Vista prèvia del teu mando personalitzat Under Controllers.</p>
+      </div>
+    </section>
+
+    <!-- CONFIGURADOR VISUAL -->
+    <section id="configurador" class="section">
+      <h2>Configurador visual de mando</h2>
+      <p class="section-desc">
+        Tria els colors de la carcassa, els joysticks i els botons, i veu el resultat en directe.
+      </p>
+
+      <div class="configurator-grid">
+        <form class="config-form">
+          <div class="form-group">
+            <label>Plataforma</label>
+            <div class="platform-options">
+              <label><input type="radio" name="platform" value="xbox" checked /> Xbox</label>
+              <label><input type="radio" name="platform" value="playstation" /> PlayStation</label>
+              <label><input type="radio" name="platform" value="pc" /> PC</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="color-shell">Color carcassa</label>
+            <input type="color" id="color-shell" value="#2b2bff" />
+          </div>
+
+          <div class="form-group">
+            <label for="color-sticks">Color joysticks</label>
+            <input type="color" id="color-sticks" value="#00ffb3" />
+          </div>
+
+          <div class="form-group">
+            <label for="color-buttons">Color botons</label>
+            <input type="color" id="color-buttons" value="#ff4081" />
+          </div>
+
+          <button type="button" class="btn-full" onclick="resetColors()">
+            Reiniciar colors
+          </button>
+        </form>
+
+        <div class="config-preview">
+          <h3>Vista prèvia</h3>
+          <div class="controller-preview big">
+            <div class="controller-shell" id="preview-shell">
+              <div class="controller-stick left" id="preview-stick-left"></div>
+              <div class="controller-stick right" id="preview-stick-right"></div>
+              <div class="controller-buttons" id="preview-buttons"></div>
+            </div>
+          </div>
+          <p class="preview-text" id="preview-text">
+            Model base per a <strong>Xbox</strong> amb colors personalitzats.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIAGNÒSTIC WEB -->
+    <section id="diagnostic" class="section section-alt">
+      <h2>Programa web de diagnòstic del comandament</h2>
+      <p class="section-desc">
+        Connecta el teu mando via <strong>USB-C</strong> i simula un diagnòstic bàsic des del navegador.
+        En una versió real es podria utilitzar WebUSB o una app d’escriptori.
+      </p>
+
+      <div class="diagnostic-grid">
+        <div class="diagnostic-info">
+          <h3>Què comprova el diagnòstic?</h3>
+          <ul>
+            <li>Drift als joysticks</li>
+            <li>Botons que no responen o es queden enganxats</li>
+            <li>Triggers i bumpers</li>
+            <li>Versió de firmware del mando</li>
+          </ul>
+        </div>
+
+        <div class="diagnostic-panel">
+          <form onsubmit="event.preventDefault(); runDiagnostic();">
+            <div class="form-group">
+              <label for="diag-platform">Plataforma</label>
+              <select id="diag-platform">
+                <option value="Xbox">Xbox</option>
+                <option value="PlayStation">PlayStation</option>
+                <option value="PC">PC</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="diag-model">Model de mando</label>
+              <select id="diag-model">
+                <option value="UC PRO">UC PRO</option>
+                <option value="UC Lite">UC Lite</option>
+                <option value="UC Shadow">UC Shadow</option>
+              </select>
+            </div>
+
+            <button type="submit">Iniciar diagnòstic (demo)</button>
+
+            <p class="diag-status" id="diag-status">
+              Estat: pendent de connexió del mando per USB-C.
+            </p>
+            <pre class="diag-log" id="diag-log">
+[READY] Sistema de diagnòstic Under Controllers preparat.
+            </pre>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOTIGA -->
+    <section id="botiga" class="section">
+      <h2>Botiga Under Controllers</h2>
+      <p class="section-desc">
+        Mandos personalitzats, enganxines decoratives i recanvis oficials (joysticks, botons, etc.).
+      </p>
+
+      <div class="shop-filters">
+        <button class="filter-btn active" data-filter="all" onclick="filterProducts('all')">Tots</button>
+        <button class="filter-btn" data-filter="controller" onclick="filterProducts('controller')">Mandos</button>
+        <button class="filter-btn" data-filter="sticker" onclick="filterProducts('sticker')">Enganxines</button>
+        <button class="filter-btn" data-filter="spare" onclick="filterProducts('spare')">Recanvis</button>
+      </div>
+
+      <div class="shop-grid" id="shop-grid">
+        <!-- MANDOS -->
+        <article class="product-card" data-category="controller">
+          <h3>UC PRO Shift</h3>
+          <p class="product-desc">Mando competitiu amb backpaddles i grips antilliscants.</p>
+          <p class="product-price">189,00 €</p>
+          <p class="product-tags">Xbox · PlayStation · PC</p>
+        </article>
+
+        <article class="product-card" data-category="controller">
+          <h3>UC Neo Lite</h3>
+          <p class="product-desc">Versió lleugera per a esports electrònics.</p>
+          <p class="product-price">129,00 €</p>
+          <p class="product-tags">Pes reduït · cable USB-C</p>
+        </article>
+
+        <!-- ENGANXINES -->
+        <article class="product-card" data-category="sticker">
+          <h3>Pack enganxines hologràfiques</h3>
+          <p class="product-desc">Logos i gràfics per al mando, portàtil o torre.</p>
+          <p class="product-price">9,90 €</p>
+          <p class="product-tags">Resistents · efecte hologràfic</p>
+        </article>
+
+        <article class="product-card" data-category="sticker">
+          <h3>Skins vinil</h3>
+          <p class="product-desc">Camo, neon i galaxy per personalitzar completament.</p>
+          <p class="product-price">14,90 €</p>
+          <p class="product-tags">Fàcil d’aplicar · sense residus</p>
+        </article>
+
+        <!-- RECANVIS -->
+        <article class="product-card" data-category="spare">
+          <h3>Kit joysticks</h3>
+          <p class="product-desc">Joysticks alts i baixos en diferents colors.</p>
+          <p class="product-price">19,90 €</p>
+          <p class="product-tags">Negre · blau · verd neon</p>
+        </article>
+
+        <article class="product-card" data-category="spare">
+          <h3>Pack botons de colors</h3>
+          <p class="product-desc">ABXY / Δ○✕▢ transparents i en colors pastel.</p>
+          <p class="product-price">15,90 €</p>
+          <p class="product-tags">Compatibles amb Xbox i PS</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACTE -->
+    <section id="contacte" class="section section-alt">
+      <h2>Contacte</h2>
+      <p class="section-desc">
+        Per dubtes, recanvis o projectes de mandos personalitzats, ens pots escriure:
+      </p>
+
+      <div class="contact-grid">
+        <div>
+          <ul class="contact-list">
+            <li><strong>Email suport tècnic:</strong> suport@undercontrollers.com</li>
+            <li><strong>Email comandes:</strong> shop@undercontrollers.com</li>
+          </ul>
+        </div>
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Missatge enviat (demo)');">
+          <div class="form-group">
+            <label for="contact-email">Email</label>
+            <input id="contact-email" type="email" required />
+          </div>
+          <div class="form-group">
+            <label for="contact-msg">Missatge</label>
+            <textarea id="contact-msg" rows="3" required></textarea>
+          </div>
+          <button type="submit">Enviar (demo)</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© Under Controllers · Mandos personalitzats per a Xbox, PlayStation i PC.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
