@@ -25,7 +25,7 @@ L’abast del projecte inclou la planificació i creació d’un entorn complet 
 
 - Elaboració de la documentació tècnica i memòria del projecte, seguint la metodologia establerta.
 
-###Fases del projecte
+### Fases del projecte
 
 ##Infraestructura(Al ser startup, llogarem tota la infraestructura)
 
@@ -35,13 +35,13 @@ L’abast del projecte inclou la planificació i creació d’un entorn complet 
 - Maquinària: Dremmel, soldadora d’estany, extractors
 - Eines: Alicates, tornavisos, pelacables, testers, USB Flash, tisores.
 
-##Informatització
+## Informatització
 
 - Pàgina web: undercontrollers.cat 
 - E-commerce: Botiga online dins de undercontrollers.cat on es farà la venta de mandos.
 - Programa detector d’averies: Programa dins de undercontrollers.cat on conectant el mando es podran detectar les averies. 
 
-##Millores i optimització
+## Millores i optimització
 
 - Creació de models propis de controladors: Per estar a la ultima tecnologia, estar actualitzats a les necessitats dels clients.
 - Models: UC Pro Shift, UC Neo Lite i UC Shadow Edition
