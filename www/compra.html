@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <title>Under Controllers · Custom gaming gear</title>
+  
+  <link rel="icon" type="image/png" href="logobase.png">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="neon-orb cyan"></div>
+  <div class="neon-orb violet"></div>
+  <div class="neon-orb pink"></div>
+
+  <header>
+    <nav class="nav">
+<a href="index.html" class="logo" style="text-decoration: none;">
+  <img src="logobase.png" alt="Under Controllers logo" class="logo-img">
+  <div>
+    <div class="logo-text-main">UNDER CONTROLLERS</div>
+    <div class="logo-text-sub">Custom gaming gear</div>
+  </div>
+</a>
+      <button class="nav-toggle">Menu</button>
+      <div class="nav-links">
+        <a href="index.html">Inici</a>
+        <a href="configurador.html">Configurador</a>
+        <a href="diagnostic.html">Diagnòstic</a>
+        <a href="botiga.html">Botiga</a>
+        <a href="forum.html">Fòrum</a>
+        <a href="contacte.html">Contacte</a>
+        <button type="button" class="nav-login-btn" id="open-login">Login</button>
+      </div>
+    </nav>
+  </header>
+
+  <main style="max-width: 800px; margin: 0 auto; padding-top: 40px;">
+    <section class="card" style="text-align: center;">
+      <h2 class="section-title">Resum de la teva configuració</h2>
+      <p style="color: var(--text-muted); margin-bottom: 30px;">Estàs a un pas de rebre la teva arma definitiva.</p>
+      
+      <div style="max-width: 500px; margin: 0 auto; margin-bottom: 40px;">
+        <!-- El mismo SVG detallado del configurador -->
+        <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" style="width: 100%; filter: drop-shadow(0 15px 25px rgba(0,0,0,0.6));">
+          <defs>
+            <linearGradient id="3d-shading-compra" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#ffffff" stop-opacity="0.15"/>
+              <stop offset="20%" stop-color="#000000" stop-opacity="0.05"/>
+              <stop offset="100%" stop-color="#000000" stop-opacity="0.85"/>
+            </linearGradient>
+            <filter id="neon-glow-compra" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+              <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <path d="M160 70 C 80 70, 40 130, 40 220 C 40 330, 90 380, 130 380 C 170 380, 190 310, 240 290 C 280 270, 320 270, 360 290 C 410 310, 430 380, 470 380 C 510 380, 560 330, 560 220 C 560 130, 520 70, 440 70 Z" fill="#7f5bff"/>
+          <path d="M160 70 C 80 70, 40 130, 40 220 C 40 330, 90 380, 130 380 C 170 380, 190 310, 240 290 C 280 270, 320 270, 360 290 C 410 310, 430 380, 470 380 C 510 380, 560 330, 560 220 C 560 130, 520 70, 440 70 Z" fill="url(#3d-shading-compra)" stroke="#1a1f35" stroke-width="2" style="pointer-events: none;"/>
+          <path d="M 230 70 L 370 70 L 390 140 L 340 180 L 260 180 L 210 140 Z" fill="#151515" stroke="#0a0a0a" stroke-width="2"/>
+          <g transform="translate(180, 150)">
+            <circle cx="0" cy="0" r="45" fill="#0d0d0d" stroke="#222" stroke-width="2"/>
+            <circle cx="0" cy="0" r="38" fill="none" stroke="#4cffd7" stroke-width="3" filter="url(#neon-glow-compra)"/>
+            <circle cx="0" cy="0" r="30" fill="#2a2b2c" stroke="#000" stroke-width="2"/>
+          </g>
+          <g transform="translate(230, 260)">
+            <circle cx="0" cy="0" r="42" fill="#1a1a1a" stroke="#0a0a0a" stroke-width="3"/>
+            <path d="M -15 -15 L 15 -15 L 10 -40 L -10 -40 Z" fill="#333"/>
+            <path d="M -15 15 L 15 15 L 10 40 L -10 40 Z" fill="#333"/>
+            <path d="M -15 -15 L -15 15 L -40 10 L -40 -10 Z" fill="#333"/>
+            <path d="M 15 -15 L 15 15 L 40 10 L 40 -10 Z" fill="#333"/>
+            <rect x="-15" y="-15" width="30" height="30" fill="#555" rx="4"/>
+          </g>
+          <g transform="translate(380, 260)">
+            <circle cx="0" cy="0" r="45" fill="#0d0d0d" stroke="#222" stroke-width="2"/>
+            <circle cx="0" cy="0" r="38" fill="none" stroke="#4cffd7" stroke-width="3" filter="url(#neon-glow-compra)"/>
+            <circle cx="0" cy="0" r="30" fill="#2a2b2c" stroke="#000" stroke-width="2"/>
+          </g>
+          <g transform="translate(430, 140)">
+            <circle cx="0" cy="35" r="16" fill="#111" />
+            <text x="0" y="41" fill="#ff4fbf" font-family="sans-serif" font-weight="bold" text-anchor="middle" filter="url(#neon-glow-compra)">A</text>
+            <circle cx="35" cy="0" r="16" fill="#111" />
+            <text x="35" y="6" fill="#ff4fbf" font-family="sans-serif" font-weight="bold" text-anchor="middle" filter="url(#neon-glow-compra)">B</text>
+            <circle cx="-35" cy="0" r="16" fill="#111" />
+            <text x="-35" y="6" fill="#ff4fbf" font-family="sans-serif" font-weight="bold" text-anchor="middle" filter="url(#neon-glow-compra)">X</text>
+            <circle cx="0" cy="-35" r="16" fill="#111" />
+            <text x="0" y="-29" fill="#ff4fbf" font-family="sans-serif" font-weight="bold" text-anchor="middle" filter="url(#neon-glow-compra)">Y</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="purchase-actions" style="display: flex; gap: 20px; justify-content: center; margin-top: 20px;">
+        <a href="configurador.html" class="btn btn-ghost" style="flex: 1; text-decoration: none;">Anar enrere</a>
+        <button class="btn" style="flex: 2; background: var(--accent-pink); color: white; border: none; font-size: 1.1rem; box-shadow: 0 0 20px rgba(255, 79, 191, 0.4);">
+          COMPRAR ARA
+        </button>
+      </div>
+      
+      <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 25px;">
+        Enviament premium gratuït per a tots els models UC.
+      </p>
+    </section>
+  </main>
+    <div class="auth-modal" id="login-modal">
+  <div class="auth-box">
+    <button class="auth-close" id="close-login">×</button>
+
+    <h2 class="section-title">Iniciar sessió</h2>
+
+    <form id="login-form">
+      <div class="form-group">
+        <label for="login-user">Usuari o email</label>
+        <input type="text" id="login-user" required />
+      </div>
+
+      <div class="form-group">
+        <label for="login-password">Contrasenya</label>
+        <input type="password" id="login-password" required />
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="width:100%;">
+        Entrar
+      </button>
+    </form>
+
+    <p class="auth-switch">
+      No tens compte?
+      <button type="button" id="open-register">Registra’t</button>
+    </p>
+  </div>
+</div>
+
+<div class="auth-modal" id="register-modal">
+  <div class="auth-box">
+    <button class="auth-close" id="close-register">×</button>
+
+    <h2 class="section-title">Crear compte</h2>
+
+    <form id="register-form">
+      <div class="form-group">
+        <label for="register-name">Nom d’usuari</label>
+        <input type="text" id="register-name" required />
+      </div>
+
+      <div class="form-group">
+        <label for="register-email">Email</label>
+        <input type="email" id="register-email" required />
+      </div>
+
+      <div class="form-group">
+        <label for="register-password">Contrasenya</label>
+        <input type="password" id="register-password" required />
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="width:100%;">
+        Crear compte
+      </button>
+    </form>
+  </div>
+</div>
+</body>
+</html>

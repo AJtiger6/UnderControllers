@@ -2,7 +2,10 @@
 <html lang="ca">
 <head>
   <meta charset="UTF-8" />
-  <title>Under Controllers · Botiga</title>
+  <title>Under Controllers · Custom gaming gear</title>
+  
+  <link rel="icon" type="image/png" href="logobase.png">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
@@ -14,13 +17,13 @@
 
   <header>
     <nav class="nav">
-      <div class="logo">
-        <div class="logo-icon"></div>
-        <div>
-          <div class="logo-text-main">UNDER CONTROLLERS</div>
-          <div class="logo-text-sub">Custom gaming gear</div>
-        </div>
-      </div>
+<a href="index.html" class="logo" style="text-decoration: none;">
+  <img src="logobase.png" alt="Under Controllers logo" class="logo-img">
+  <div>
+    <div class="logo-text-main">UNDER CONTROLLERS</div>
+    <div class="logo-text-sub">Custom gaming gear</div>
+  </div>
+</a>
       <button class="nav-toggle">Menu</button>
       <div class="nav-links">
         <a href="index.html">Inici</a>
@@ -29,156 +32,156 @@
         <a href="botiga.html" class="active">Botiga</a>
         <a href="forum.html">Fòrum</a>
         <a href="contacte.html">Contacte</a>
+        <button type="button" class="nav-login-btn" id="open-login">Login</button>
       </div>
     </nav>
   </header>
 
-  <main>
-    <section>
-      <div class="section-header">
-        <h2 class="section-title">Botiga neon Under Controllers</h2>
-        <p class="section-subtitle">
-          Mandos personalitzats, enganxines hologràfiques i recanvis oficials per als teus comandaments.
-        </p>
-      </div>
+  <main class="store-container" style="display: flex; gap: 30px; padding: 40px; max-width: 1400px; margin: 0 auto;">
+    <aside class="store-sidebar" style="flex: 0 0 250px;">
+      <h2 class="section-title" style="font-size: 1.2rem; text-align: left; margin-bottom: 20px; letter-spacing: 2px;">FILTRES</h2>
+      <ul class="filter-list" id="category-filters" style="list-style: none; padding: 0;">
+        <li style="margin-bottom: 12px;"><a href="#" class="filter-link active" data-category="all">Tots els productes</a></li>
+        <li style="margin-bottom: 12px;"><a href="#" class="filter-link" data-category="mando">Mandos</a></li>
+        <li style="margin-bottom: 12px;"><a href="#" class="filter-link" data-category="enganchines">Enganxines</a></li>
+        <li style="margin-bottom: 12px;"><a href="#" class="filter-link" data-category="recambis">Recanvis</a></li>
+      </ul>
+    </aside>
 
-      <div class="shop-filters">
-        <span style="color:var(--text-muted); text-transform:uppercase; letter-spacing:0.14em; font-size:0.76rem;">
-          Categories:
-        </span>
-        <button class="chip active" data-filter="all" onclick="filterProducts('all')">Tots</button>
-        <button class="chip" data-filter="controllers" onclick="filterProducts('controllers')">Mandos</button>
-        <button class="chip" data-filter="stickers" onclick="filterProducts('stickers')">Enganxines</button>
-        <button class="chip" data-filter="spare" onclick="filterProducts('spare')">Recanvis</button>
-      </div>
-
-      <div class="shop-grid">
-        <!-- Mandos -->
-        <article class="product-card" data-category="controllers">
-          <h3 class="product-title">UC PRO SHIFT – Ultra Neon</h3>
-          <div class="product-meta">
-            <span>Xbox · PlayStation · PC</span>
-            <span class="product-price">189,00 €</span>
-          </div>
-          <p style="margin-top:6px; color:var(--text-muted); font-size:0.85rem;">
-            4 backpaddles, grips antilliscants, triggers ràpids i acabat violeta ultraneon amb detall cian.
-          </p>
-        </article>
-
-        <article class="product-card" data-category="controllers">
-          <h3 class="product-title">UC NEO LITE – Esport electrònic</h3>
-          <div class="product-meta">
-            <span>Pes reduït · USB-C</span>
-            <span class="product-price">129,00 €</span>
-          </div>
-          <p style="margin-top:6px; color:var(--text-muted); font-size:0.85rem;">
-            Dissenyat per sessions llargues de competició amb il·luminació subtil i resposta millorada.
-          </p>
-        </article>
-
-        <article class="product-card" data-category="controllers">
-          <h3 class="product-title">UC SHADOW EDITION – Stealth</h3>
-          <div class="product-meta">
-            <span>Acabat mat · negre</span>
-            <span class="product-price">159,00 €</span>
-          </div>
-          <p style="margin-top:6px; color:var(--text-muted); font-size:0.85rem;">
-            Màxim control i discreció, amb detalls de llum violeta ultra discret i botons silenciosos.
-          </p>
-        </article>
-
-        <!-- Enganxines -->
-        <article class="product-card" data-category="stickers">
-          <h3 class="product-title">Pack enganxines hologràfiques UC</h3>
-          <div class="product-meta">
-            <span>12 unitats</span>
-            <span class="product-price">9,90 €</span>
-          </div>
-          <p style="margin-top:6px; color:var(--text-muted); font-size:0.85rem;">
-            Logotips i icones gaming amb efecte hologràfic per mando, portàtil o torre.
-          </p>
-        </article>
-
-        <article class="product-card" data-category="stickers">
-          <h3 class="product-title">Skins vinil neon</h3>
-          <div class="product-meta">
-            <span>Camo · Neon · Galaxy</span>
-            <span class="product-price">14,90 €</span>
-          </div>
-          <p style="margin-top:6px; color:var(--text-muted); font-size:0.85rem;">
-            Personalitza la carcassa sense deixar residus i afegeix un toc 100% teu.
-          </p>
-        </article>
-
-        <!-- Recanvis -->
-        <article class="product-card" data-category="spare">
-          <h3 class="product-title">Kit joysticks intercanviables</h3>
-          <div class="product-meta">
-            <span>Alts, baixos, convexos</span>
-            <span class="product-price">19,90 €</span>
-          </div>
-          <p style="margin-top:6px; color:var(--text-muted); font-size:0.85rem;">
-            Inclou colors negre, blau elèctric i verd neon per adaptar-se al teu estil.
-          </p>
-        </article>
-
-        <article class="product-card" data-category="spare">
-          <h3 class="product-title">Pack botons de colors</h3>
-          <div class="product-meta">
-            <span>ABXY / Δ○✕▢</span>
-            <span class="product-price">15,90 €</span>
-          </div>
-          <p style="margin-top:6px; color:var(--text-muted); font-size:0.85rem;">
-            Botons transparents, pastel i neon preparats per retroil·luminació RGB.
-          </p>
-        </article>
-
-        <article class="product-card" data-category="spare">
-          <h3 class="product-title">Triggers i bumpers recanvi</h3>
-          <div class="product-meta">
-            <span>Resposta ràpida</span>
-            <span class="product-price">24,90 €</span>
-          </div>
-          <p style="margin-top:6px; color:var(--text-muted); font-size:0.85rem;">
-            Pack pro per reduir recorregut i guanyar velocitat en shooters i jocs competitius.
-          </p>
-        </article>
-      </div>
-
-      <!-- CARRUSEL DE MANDOS DESTACATS -->
-      <div class="carousel" style="margin-top:24px;">
-        <div class="carousel-track">
-          <div class="carousel-item">
-            <div class="card">
-              <h3 style="margin-bottom:6px;">Edició limitada “Galaxy Neon”</h3>
-              <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:8px;">
-                Mandos amb efecte galàxia i tocs violeta ultraneon, disponibles només en tirada limitada.
-              </p>
-              <p style="font-size:0.85rem; color:var(--accent-cyan);">Proximament a la botiga UC.</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="card">
-              <h3 style="margin-bottom:6px;">Bundle competitiu</h3>
-              <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:8px;">
-                Mando UC PRO SHIFT + kit joysticks + pack enganxines hologràfiques.
-              </p>
-              <p style="font-size:0.85rem; color:var(--accent-cyan);">Pensat per a jugadors d’eSports.</p>
-            </div>
+    <div class="store-content" style="flex: 1;">
+      <div class="product-grid" id="product-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px;">
+        
+        <div class="card product-card" data-category="mando">
+          <div class="product-img" style="background-image: url('img/mandonegro.png');"></div>
+          <div class="product-info">
+            <span class="product-tag tag-cyan">Mando Basic</span>
+            <h3 class="product-title">UC Basic Edition</h3>
+            <p class="product-price">99,99€</p>
+            <button class="btn btn-primary open-detail">Veure detalls</button>
           </div>
         </div>
-        <div class="carousel-controls">
-          <button class="carousel-btn prev">‹</button>
-          <button class="carousel-btn next">›</button>
+
+        <div class="card product-card" data-category="mando">
+          <div class="product-img" style="background-image: url('img/mandodorado.png');"></div>
+          <div class="product-info">
+            <span class="product-tag tag-cyan">Mando Ultra</span>
+            <h3 class="product-title">UC Gold Edition Pro</h3>
+            <p class="product-price">499,00€</p>
+            <button class="btn btn-primary open-detail">Veure detalls</button>
+          </div>
+        </div>
+
+        <div class="card product-card" data-category="mando">
+          <div class="product-img" style="background-image: url('img/mandorojoneon.png');"></div>
+          <div class="product-info">
+            <span class="product-tag tag-cyan">Mando Pro</span>
+            <h3 class="product-title">UC Red Neon Edition</h3>
+            <p class="product-price">199,00€</p>
+            <button class="btn btn-primary open-detail">Veure detalls</button>
+          </div>
+        </div>
+
+        <div class="card product-card" data-category="mando">
+          <div class="product-img" style="background-image: url('img/mandorojo.png');"></div>
+          <div class="product-info">
+            <span class="product-tag tag-cyan">Mando Pro</span>
+            <h3 class="product-title">UC Red</h3>
+            <p class="product-price">124,99€</p>
+            <button class="btn btn-primary open-detail">Veure detalls</button>
+          </div>
+        </div>
+
+
+        <div class="card product-card" data-category="mando">
+          <div class="product-img" style="background-image: url('img/mandoblanco.png');"></div>
+          <div class="product-info">
+            <span class="product-tag tag-cyan">Mando Pro</span>
+            <h3 class="product-title">UC White Pro</h3>
+            <p class="product-price">124,99€</p>
+            <button class="btn btn-primary open-detail">Veure detalls</button>
+          </div>
+        </div>
+
+        <div class="card product-card" data-category="mando">
+          <div class="product-img" style="background-image: url('img/mandomarron.png');"></div>
+          <div class="product-info">
+            <span class="product-tag tag-cyan">Mando Pro</span>
+            <h3 class="product-title">UC Wood Edition</h3>
+            <p class="product-price">124,99€</p>
+            <button class="btn btn-primary open-detail">Veure detalls</button>
+          </div>
+        </div>
+
+        <div class="card product-card" data-category="enganchines">
+          <div class="product-img placeholder-cyan"></div>
+          <div class="product-info">
+            <span class="product-tag tag-pink">Pack UC</span>
+            <h3 class="product-title">Enganxines UC Hologràfiques</h3>
+            <p class="product-price">12,50€</p>
+            <button class="btn btn-primary open-detail">Veure detalls</button>
+          </div>
+        </div>
+
+        <div class="card product-card" data-category="enganchines">
+          <div class="product-img placeholder-pink"></div>
+          <div class="product-info">
+            <span class="product-tag tag-pink">Skin</span>
+            <h3 class="product-title">Skins Vinil Neon</h3>
+            <p class="product-price">18,90€</p>
+            <button class="btn btn-primary open-detail">Veure detalls</button>
+          </div>
+        </div>
+
+        <div class="card product-card" data-category="recambis">
+          <div class="product-img placeholder-violet"></div>
+          <div class="product-info">
+            <span class="product-tag tag-violet">Recanvi</span>
+            <h3 class="product-title">Kit Joysticks</h3>
+            <p class="product-price">22,00€</p>
+            <button class="btn btn-primary open-detail">Veure detalls</button>
+          </div>
+        </div>
+
+        <div class="card product-card" data-category="recambis">
+          <div class="product-img placeholder-violet"></div>
+          <div class="product-info">
+            <span class="product-tag tag-violet">Recanvi</span>
+            <h3 class="product-title">Pack Botons Colors</h3>
+            <p class="product-price">14,99€</p>
+            <button class="btn btn-primary open-detail">Veure detalls</button>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
   </main>
 
-  <footer>
-    <span>© Under Controllers · Botiga oficial.</span>
-    <span>Mandos, enganxines i recanvis neon.</span>
-  </footer>
+  <div class="auth-modal" id="product-modal">
+    <div class="auth-box" style="width: min(92vw, 850px); display: flex; flex-wrap: wrap; gap: 30px; padding: 35px;">
+      <button class="auth-close" id="close-product-modal">×</button>
+      <div id="modal-img" style="flex: 1; min-width: 300px; height: 350px; background-size: contain; background-repeat: no-repeat; background-position: center; border-radius: 12px; background-color: var(--bg-alt); border: 1px solid var(--border-subtle);"></div>
+      <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column; justify-content: center;">
+        <span id="modal-tag" class="product-tag">Categoria</span>
+        <h2 id="modal-title" class="section-title" style="text-align: left; margin: 15px 0; font-size: 2rem;">Producte</h2>
+        <p style="color: var(--text-muted); margin-bottom: 25px; line-height: 1.6; font-size: 0.95rem;">
+          Producte oficial d'Under Controllers. Dissenyat amb components de màxima qualitat per garantir la millor experiència gaming.
+        </p>
+        <div id="modal-price" style="font-size: 2.5rem; color: var(--accent-cyan); font-weight: bold; margin-bottom: 30px; font-family: 'Rajdhani';">00,00€</div>
+        <button class="btn btn-primary" style="width: 100%; padding: 18px; font-size: 1.2rem;">COMPRA ARA</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="auth-modal" id="login-modal">
+    <div class="auth-box">
+      <button class="auth-close" id="close-login">×</button>
+      <h2 class="section-title">Entrar</h2>
+      <form id="login-form">
+        <div class="form-group"><label>Usuari</label><input type="text" id="login-user" required /></div>
+        <div class="form-group"><label>Contrasenya</label><input type="password" id="login-password" required /></div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Accedir</button>
+      </form>
+    </div>
+  </div>
+
 </body>
 </html>
-

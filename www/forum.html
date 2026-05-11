@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Under Controllers · Fòrum</title>
+  <link rel="icon" type="image/png" href="logo.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
@@ -14,8 +15,12 @@
 
   <header>
     <nav class="nav">
-      <a href="index.html" class="logo logo-image-link">
-        <img src="logo-undercontrollers.png" alt="Undercontrollers" class="site-logo-img">
+      <a href="index.html" class="logo" style="text-decoration: none;">
+        <img src="logo.png" alt="Under Controllers logo" class="logo-img">
+        <div>
+          <div class="logo-text-main">UNDER CONTROLLERS</div>
+          <div class="logo-text-sub">Custom gaming gear</div>
+        </div>
       </a>
 
       <button class="nav-toggle">Menu</button>
@@ -27,6 +32,7 @@
         <a href="botiga.html">Botiga</a>
         <a href="forum.html" class="active">Fòrum</a>
         <a href="contacte.html">Contacte</a>
+        <button type="button" class="nav-login-btn" id="open-login">Login</button>
       </div>
     </nav>
   </header>
@@ -40,51 +46,108 @@
         </p>
       </div>
 
-      <div id="forum-locked" class="card forum-locked">
-        <h3>Accés restringit</h3>
-        <p style="color:var(--text-muted); margin-top:6px;">
-          Has d’iniciar sessió des de la pàgina d’inici per participar al fòrum.
+      <div id="forum-locked" class="card forum-locked" style="text-align: center; padding: 60px 20px;">
+        <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Accés restringit</h3>
+        <p style="color:var(--text-muted); margin-bottom: 30px;">
+          Has d’iniciar sessió per participar al fòrum i veure els fils de la comunitat.
         </p>
-        <a href="index.html" class="btn btn-primary" style="margin-top:12px;">Iniciar sessió</a>
+        <button class="btn btn-primary" style="padding: 15px 40px; font-size: 1.2rem;" onclick="document.getElementById('login-modal').classList.add('open');">
+          INICIAR SESSIÓ
+        </button>
       </div>
 
       <div id="forum-content" hidden>
-        <div class="card forum-create-card">
-          <h3>Nova publicació</h3>
-
-          <form id="forum-post-form">
-            <div class="form-group">
-              <label for="post-title">Títol</label>
-              <input type="text" id="post-title" placeholder="Ex: Configuració neon per FPS" required />
-            </div>
-
-            <div class="form-group">
-              <label for="post-category">Categoria</label>
-              <select id="post-category">
-                <option value="Configuracions">Configuracions</option>
-                <option value="Dubtes">Dubtes</option>
-                <option value="Idees">Idees</option>
-                <option value="Opinions">Opinions</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="post-body">Missatge</label>
-              <textarea id="post-body" rows="5" placeholder="Escriu aquí la teva publicació..." required></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary">Publicar</button>
-          </form>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <h3 style="margin: 0; font-family: 'Rajdhani'; letter-spacing: 1px;">TEMES RECENTS</h3>
+          <button id="btn-open-create-post" class="btn btn-primary" onclick="document.getElementById('create-post-modal').classList.add('open');">+ Crear nou tema</button>
         </div>
 
-        <div class="forum-list" id="forum-list"></div>
+        <div class="forum-list" id="forum-list">
+          <p style="color:var(--text-muted); text-align:center; padding: 20px;">Carregant publicacions...</p>
+        </div>
       </div>
     </section>
   </main>
 
+  <div class="auth-modal" id="create-post-modal">
+    <div class="auth-box" style="width: min(92vw, 600px);">
+      <button type="button" class="auth-close" onclick="document.getElementById('create-post-modal').classList.remove('open');">×</button>
+      <h2 class="section-title">Nova publicació</h2>
+
+      <form id="forum-post-form">
+        <div class="form-group">
+          <label for="post-title">Títol del tema</label>
+          <input type="text" id="post-title" placeholder="Ex: Millor configuració per a Warzone" required />
+        </div>
+
+        <div class="form-group">
+          <label for="post-category">Categoria</label>
+          <select id="post-category" style="width: 100%; background: var(--bg-alt); border: 1px solid var(--border-subtle); color: var(--text-main); padding: 12px; border-radius: 8px; font-family: inherit;">
+            <option value="Configuracions">Configuracions</option>
+            <option value="Dubtes">Dubtes</option>
+            <option value="Idees">Idees</option>
+            <option value="Opinions">Opinions</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="post-body">Descripció o Missatge</label>
+          <textarea id="post-body" rows="6" placeholder="Explica aquí el que vulguis compartir..." required style="width: 100%; background: var(--bg-alt); border: 1px solid var(--border-subtle); color: var(--text-main); padding: 12px; border-radius: 8px; font-family: inherit; resize: vertical;"></textarea>
+        </div>
+
+        <div style="display: flex; gap: 15px; margin-top: 25px;">
+          <button type="button" class="btn btn-ghost" style="flex: 1;" onclick="document.getElementById('create-post-modal').classList.remove('open');">Enrere</button>
+          <button type="submit" class="btn btn-primary" style="flex: 1;">Publicar ara</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="auth-modal" id="login-modal">
+    <div class="auth-box">
+      <button type="button" class="auth-close" onclick="document.getElementById('login-modal').classList.remove('open');">×</button>
+      <h2 class="section-title">Iniciar sessió</h2>
+      <form id="login-form">
+        <div class="form-group">
+          <label for="login-user">Usuari o email</label>
+          <input type="text" id="login-user" required />
+        </div>
+        <div class="form-group">
+          <label for="login-password">Contrasenya</label>
+          <input type="password" id="login-password" required />
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Entrar</button>
+      </form>
+      <p class="auth-switch">No tens compte?
+        <button type="button" onclick="document.getElementById('login-modal').classList.remove('open'); document.getElementById('register-modal').classList.add('open');">Registra’t</button>
+      </p>
+    </div>
+  </div>
+
+  <div class="auth-modal" id="register-modal">
+    <div class="auth-box">
+      <button type="button" class="auth-close" onclick="document.getElementById('register-modal').classList.remove('open');">×</button>
+      <h2 class="section-title">Crear compte</h2>
+      <form id="register-form">
+        <div class="form-group">
+          <label for="register-name">Nom d’usuari</label>
+          <input type="text" id="register-name" required />
+        </div>
+        <div class="form-group">
+          <label for="register-email">Email</label>
+          <input type="email" id="register-email" required />
+        </div>
+        <div class="form-group">
+          <label for="register-password">Contrasenya</label>
+          <input type="password" id="register-password" required />
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Crear compte</button>
+      </form>
+    </div>
+  </div>
+
   <footer>
     <span>© Under Controllers · Fòrum comunitari.</span>
-    <span>Configuracions, idees i debat neon.</span>
   </footer>
 </body>
 </html>
