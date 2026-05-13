@@ -2,8 +2,10 @@
 <html lang="ca">
 <head>
   <meta charset="UTF-8" />
-  <title>Under Controllers · Fòrum</title>
-  <link rel="icon" type="image/png" href="logo.png">
+  <title>Under Controllers · Custom gaming gear</title>
+  
+  <link rel="icon" type="image/png" href="logobase.png">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
@@ -15,14 +17,13 @@
 
   <header>
     <nav class="nav">
-      <a href="index.html" class="logo" style="text-decoration: none;">
-        <img src="logo.png" alt="Under Controllers logo" class="logo-img">
-        <div>
-          <div class="logo-text-main">UNDER CONTROLLERS</div>
-          <div class="logo-text-sub">Custom gaming gear</div>
-        </div>
-      </a>
-
+<a href="index.html" class="logo" style="text-decoration: none;">
+  <img src="logobase.png" alt="Under Controllers logo" class="logo-img">
+  <div>
+    <div class="logo-text-main">UNDER CONTROLLERS</div>
+    <div class="logo-text-sub">Custom gaming gear</div>
+  </div>
+</a>
       <button class="nav-toggle">Menu</button>
 
       <div class="nav-links">
@@ -73,7 +74,7 @@
     <div class="auth-box" style="width: min(92vw, 600px);">
       <button type="button" class="auth-close" onclick="document.getElementById('create-post-modal').classList.remove('open');">×</button>
       <h2 class="section-title">Nova publicació</h2>
-
+      
       <form id="forum-post-form">
         <div class="form-group">
           <label for="post-title">Títol del tema</label>
@@ -118,9 +119,7 @@
         </div>
         <button type="submit" class="btn btn-primary" style="width:100%;">Entrar</button>
       </form>
-      <p class="auth-switch">No tens compte?
-        <button type="button" onclick="document.getElementById('login-modal').classList.remove('open'); document.getElementById('register-modal').classList.add('open');">Registra’t</button>
-      </p>
+      <p class="auth-switch">No tens compte? <button type="button" onclick="document.getElementById('login-modal').classList.remove('open'); document.getElementById('register-modal').classList.add('open');">Registra’t</button></p>
     </div>
   </div>
 
